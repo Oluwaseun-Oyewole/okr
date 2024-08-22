@@ -1,0 +1,20 @@
+
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged
+
+
+yarn run check-types ||
+(
+    echo 'Failed Type check'
+    false;
+)
+
+# If everything passes... Now we can commit
+echo 'Code looks good to me... Trying to build now.'
+
+# yarn run build ||
+# (
+#     echo 'Better call Seun... Because your build failed. '
+#     false;
+# )
