@@ -2,3 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.container__wrapper {
+  @apply mx-auto overflow-x-hidden overflow-y-scroll px-8 md:px-10 lg:px-10 xl:max-w-[1300px];
+}
+
+::-webkit-scrollbar {
+  background: transparent !important;
+  width: 0px !important;
+}

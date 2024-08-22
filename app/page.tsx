@@ -1,7 +1,10 @@
+import LandingPageWrapper from "@/components/custom/wrapper";
+import Contacts from "@/components/ui/contacts";
+
 export default function Home() {
   return (
-    <main className="flex h-screen flex-col items-center justify-center">
-      <p>Okra Assessments </p>
-    </main>
+    <LandingPageWrapper>
+      <Contacts />
+    </LandingPageWrapper>
   );
 }
