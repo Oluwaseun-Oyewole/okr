@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import type { Metadata } from "next";
 import { type ReactNode } from "react";
+import { ToastContainer } from "react-toastify";
 import { telegraf } from "./fonts";
 import "./globals.css";
 
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={classNames(telegraf.className, "font-extrabold")}>
+        <ToastContainer position="top-center" />
         {children}
       </body>
     </html>

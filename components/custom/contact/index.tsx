@@ -3,6 +3,7 @@ import {
   contactFormValidationSchema,
   type ContactSalesFormValues,
 } from "@/lib/schema/contact";
+import { Toastify } from "@/utils/toast";
 import { Form, Formik } from "formik";
 import { ZodError } from "zod";
 import Button from "../button";
@@ -17,6 +18,7 @@ const ContactForm = () => {
     companyName: "",
     websiteUrl: "",
     message: "",
+    findUs: { value: "", label: "" },
   };
   const validateForm = (values: ContactSalesFormValues) => {
     try {
@@ -28,14 +30,12 @@ const ContactForm = () => {
     }
   };
 
-  const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
-
   const basis = "basis-[48%]";
-  const onSubmit = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onSubmit = (values: ContactSalesFormValues, { resetForm }: any) => {
+    Toastify.success("Form submitted");
+    resetForm({});
+  };
   return (
     <div className="font-telegraf">
       <Formik
@@ -101,11 +101,7 @@ const ContactForm = () => {
                 label="Website URL"
               />
 
-              <SelectInput
-                options={options}
-                label="How did you find us"
-                id="select option"
-              />
+              <SelectInput formik={formik} />
 
               <FormikController
                 control="textarea"

@@ -29,7 +29,7 @@ const Footer = () => {
     <footer className="bg-[#DADADB]">
       <MotionWrapper>
         <div className="container__wrapper child__wrapper">
-          <div className="flex flex-col justify-between md:flex-row">
+          <div className="border-[rgba(rgb(218 218 219, 1)] flex flex-col justify-between border-b-[1px] pb-10 md:flex-row">
             <Image
               src={Brinte}
               alt="brinte footer image"

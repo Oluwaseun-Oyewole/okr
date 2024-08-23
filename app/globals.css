@@ -27,26 +27,19 @@
   width: 0px !important;
 }
 
-.css-hlgwow {
-  border-radius: 0.75rem !important;
-  /* background: red !important; */
-}
-.css-ouaut1-control {
+.css-1jqq78o-placeholder {
+  display: none !important;
 }
 
 .css-1wy0on6 {
-  /* background: yellow !important; */
-}
-
-.css-13cymwt-control {
-  background: #f2f2f3 !important;
-  width: 100%;
   border: none !important;
-  border-radius: 0.75rem !important;
+}
+.css-1xc3v61-indicatorContainer {
+  border: none !important;
 }
 
-.css-13cymwt-control:focus {
-  background: red !important;
+.css-hlgwow {
+  border-radius: 0.75rem !important;
 }
 
 .gridContainer {

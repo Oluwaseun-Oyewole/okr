@@ -28,9 +28,11 @@ const TextArea = ({ label, id, name, ...props }: TextAreaProps) => {
           {...props}
         />
       </div>
-      <ErrorMessage name={name ?? ""}>
-        {(msg) => <FormError error={msg} />}
-      </ErrorMessage>
+      <div className="-mt-3">
+        <ErrorMessage name={name ?? ""}>
+          {(msg) => <FormError error={msg} />}
+        </ErrorMessage>
+      </div>
     </>
   );
 };
