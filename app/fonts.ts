@@ -1,13 +1,16 @@
-import { DM_Sans, Outfit } from "next/font/google";
+import localFont from "next/font/local";
 
-export const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["300", "500", "600", "700"],
-});
-
-export const sans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm",
-  weight: ["500"],
+export const telegraf = localFont({
+  src: [
+    {
+      path: "../public/fonts/Telegraf/PPTelegraf-UltraLight.otf",
+    },
+    {
+      path: "../public/fonts/Telegraf/PPTelegraf-UltraBold.otf",
+    },
+    {
+      path: "../public/fonts/Telegraf/PPTelegraf-Regular.otf",
+    },
+  ],
+  variable: "--font-telegraph",
 });

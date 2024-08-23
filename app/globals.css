@@ -3,10 +3,87 @@
 @tailwind utilities;
 
 .container__wrapper {
-  @apply mx-auto overflow-x-hidden overflow-y-scroll px-8 md:px-10 lg:px-10 xl:max-w-[1300px];
+  @apply mx-auto overflow-x-hidden overflow-y-scroll px-10 xl:max-w-[1300px];
+}
+
+.child__wrapper {
+  @apply mx-auto w-full py-14 md:max-w-[900px] lg:py-36;
+}
+
+.sub__wrapper {
+  @apply ml-auto w-full md:max-w-[800px];
+}
+
+.heading__text {
+  @apply text-3xl md:text-7xl;
+}
+
+.sub__text {
+  @apply py-4 text-lg text-[#5E5E60] md:text-xl;
 }
 
 ::-webkit-scrollbar {
   background: transparent !important;
   width: 0px !important;
+}
+
+.css-hlgwow {
+  border-radius: 0.75rem !important;
+  /* background: red !important; */
+}
+.css-ouaut1-control {
+}
+
+.css-1wy0on6 {
+  /* background: yellow !important; */
+}
+
+.css-13cymwt-control {
+  background: #f2f2f3 !important;
+  width: 100%;
+  border: none !important;
+  border-radius: 0.75rem !important;
+}
+
+.css-13cymwt-control:focus {
+  background: red !important;
+}
+
+.gridContainer {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "card-1 card-1 card-2  card-2"
+    "card-1 card-1 card-3 card-3";
+}
+
+.card-1 {
+  grid-area: card-1;
+}
+
+.card-2 {
+  grid-area: card-2;
+}
+
+.card-3 {
+  grid-area: card-3;
+}
+
+@media screen and (max-width: 768px) {
+  .gridContainer {
+    grid-template-areas:
+      "card-1 card-1 card-2 card-2"
+      "card-1 card-1 card-3 card-3";
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .gridContainer {
+    height: 400px;
+    grid-template-areas:
+      "card-1 card-1 card-1 card-1"
+      "card-2 card-2 card-2 card-2"
+      "card-3 card-3 card-3 card-3";
+  }
 }

@@ -8,9 +8,11 @@ export default function FormFieldLayout({
   label?: string;
 } & PropsWithChildren) {
   return (
-    <div>
-      <Label label={label} />
-      {children}
+    <div className="">
+      <div className="">
+        <Label label={label} />
+        {children}
+      </div>
     </div>
   );
 }

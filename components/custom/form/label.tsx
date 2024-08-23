@@ -6,7 +6,10 @@ interface ILabelProps {
 
 const Label = ({ label = "" }: ILabelProps) => {
   return (
-    <label className={classNames("block flex-1 font-medium text-black")}>
+    <label
+      className={classNames("block flex-1 font-medium text-black")}
+      htmlFor={label}
+    >
       {label}
     </label>
   );

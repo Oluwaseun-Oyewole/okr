@@ -1,32 +1,51 @@
+import classNames from "classnames";
 import { ErrorMessage } from "formik";
 import { type InputHTMLAttributes, type ReactNode } from "react";
 import FormError from "./form-error";
-import FormFieldLayout from "./layout";
 
 type IProps = {
   label?: string;
+  id?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export default function FormInput({
   label,
   type,
+  id,
   name,
   ...props
 }: IProps): ReactNode {
   return (
-    <FormFieldLayout label={label}>
-      <div className="relative">
+    <div className="">
+      <div
+        className={classNames(
+          "flex flex-col items-start justify-center gap-3 rounded-xl border-2 border-transparent bg-formBg px-5 py-3 transition-all duration-500 ease-in-out hover:border-border focus:border-[0.4px]",
+        )}
+      >
+        <label
+          className={classNames(
+            "block flex-1 text-xs font-light text-gray_500",
+          )}
+          htmlFor={id}
+        >
+          {label}
+        </label>
         <input
-          className="focus:border-btn hover:border-btn relative !rounded-lg border-[1.3px] border-gray-300 px-3 py-[15px] placeholder:font-normal placeholder:text-black"
+          id={id}
+          name={name}
+          className={classNames(
+            "w-full border-none bg-formBg font-telegraf font-normal text-black outline-none placeholder:text-sm placeholder:font-normal placeholder:text-gray_500",
+          )}
           autoComplete="off"
+          aria-required
           type={type}
           {...props}
         />
-
-        <ErrorMessage name={name ?? ""}>
-          {(msg) => <FormError error={msg} />}
-        </ErrorMessage>
       </div>
-    </FormFieldLayout>
+
+      <ErrorMessage name={name ?? ""}>
+        {(msg) => <FormError error={msg} />}
+      </ErrorMessage>
+    </div>
   );
 }

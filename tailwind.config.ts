@@ -1,7 +1,11 @@
 import type { Config } from "tailwindcss";
 // 464649;
 const colors = {
-  textColor: "#464649;",
+  textColor: "#464649",
+  formBg: "#F2F2F3",
+  border: "#824FE7",
+  gray_500: "#909092",
+  button: "#824FE7",
 };
 const config: Config = {
   content: [
@@ -17,6 +21,9 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: { ...colors },
+      fontFamily: {
+        telegraf: ["var(--font-telegraf)"],
+      },
     },
   },
   plugins: [],

@@ -25,8 +25,8 @@ const Navigation = () => {
   return (
     <header
       className={classNames(
-        "sticky left-0 top-0 z-50 h-[12vh] transition-all duration-500 ease-in-out",
-        { "bg-gray700": isScrolledPast },
+        "sticky left-0 top-0 z-50 h-[12vh] bg-white font-telegraf font-medium transition-all duration-500 ease-in-out",
+        { "bg-gray-100": isScrolledPast },
       )}
     >
       <nav className="container__wrapper flex h-full items-center justify-between">
@@ -34,7 +34,7 @@ const Navigation = () => {
           <Image
             src={logoImage}
             alt="Okra logo image"
-            className="h-full w-[150px]"
+            className="h-full md:w-[150px]"
           />
         </Link>
 
@@ -43,7 +43,7 @@ const Navigation = () => {
             return (
               <li
                 key={nav.id}
-                className="text-base font-medium text-textColor transition-all duration-500 ease-in-out"
+                className="text-sm text-textColor transition-all duration-500 ease-in-out hover:text-green-500 xl:text-base"
               >
                 <Link href={nav.link}>{nav.title}</Link>
               </li>

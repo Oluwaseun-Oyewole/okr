@@ -5,7 +5,7 @@ export const enum Routes {
   docs = "/auth/docs",
   our_story = "/auth/our-story",
   pricing = "/pricing",
-  contacts = "/contacts",
+  contacts = "/contact",
   login = "/login",
   join_waiting = "/join",
 }

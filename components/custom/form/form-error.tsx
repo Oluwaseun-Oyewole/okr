@@ -4,7 +4,9 @@ interface IFormErrorProps {
 
 const FormError = ({ error = "" }: IFormErrorProps) => {
   return (
-    <p className="mt-[5px] flex items-center text-sm !text-red-600">{error}</p>
+    <p className="flex items-center pl-2 pt-[2px] font-telegraf text-[13px] !text-red-600">
+      {error}
+    </p>
   );
 };
 

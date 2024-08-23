@@ -2,20 +2,23 @@ import { useEffect, useState } from "react";
 
 export const useScroll = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-  const [_, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
   const [isScrolledPast, setIsScrolledPast] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
-      setIsScrolledPast(currentScrollY > 200);
+      if (scrollY > 80) {
+        setIsScrolledPast(true);
+      } else {
+        setIsScrolledPast(false);
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [scrollY]);
 
   return { isScrolledPast };
 };

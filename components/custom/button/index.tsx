@@ -17,7 +17,7 @@ export default function Button({
   const customButtonStyles = (buttonType: ButtonType) => {
     switch (buttonType) {
       case "default":
-        return "bg-transparent";
+        return "bg-transparent px-7 py-3 rounded-lg";
       case "secondary":
         return "bg-textColor lg:bg-black text-white px-7 py-3 rounded-lg";
       default:
@@ -29,11 +29,11 @@ export default function Button({
     <button
       {...rest}
       className={classNames(
-        `w-full gap-4 text-textColor transition-all duration-700 ease-in-out hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-50 ${
+        `w-full gap-4 font-light text-textColor transition-all duration-700 ease-in-out hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-50 ${
           isLoading && "flex items-center justify-center gap-3"
         } `,
-        className,
         customButtonStyles(buttonType),
+        className,
       )}
     >
       {isLoading ? <Loader /> : children}

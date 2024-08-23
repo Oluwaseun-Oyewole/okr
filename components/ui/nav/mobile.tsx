@@ -59,7 +59,7 @@ export const MobileNavigation = () => {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={variants}
-      className={`container__wrapper absolute right-0 flex h-[88vh] w-full flex-col overflow-hidden bg-[#121212] shadow-md lg:hidden`}
+      className={`container__wrapper fixed right-0 top-20 z-50 flex h-[89vh] w-full flex-col overflow-hidden overflow-y-hidden bg-[#121212] shadow-md lg:hidden`}
     >
       <motion.ul
         initial="hidden"

@@ -1,11 +1,12 @@
+import classNames from "classnames";
 import type { Metadata } from "next";
 import { type ReactNode } from "react";
-import { outfit } from "./fonts";
+import { telegraf } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Okra Assessments",
-  description: "Okra Assessments",
+  title: "Okra",
+  description: "Okra",
 };
 
 export default function RootLayout({
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={outfit.className}>{children}</body>
+      <body className={classNames(telegraf.className, "font-extrabold")}>
+        {children}
+      </body>
     </html>
   );
 }
