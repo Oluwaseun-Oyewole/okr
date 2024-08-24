@@ -15,10 +15,8 @@ export const MobileNavigation = () => {
     visible: {
       x: 0,
       transition: {
-        type: "spring",
-        stiffness: 32,
-        duration: 2,
-        mass: 1,
+        type: "tween",
+        duration: 0.5,
       },
       opacity: [0, 0.2, 0.6, 0.8, 1],
     },
