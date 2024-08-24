@@ -6,7 +6,7 @@ const Products = () => {
     <LandingPageWrapper>
       <section className="container__wrapper">
         <div className="child__wrapper">
-          <div className="sub__wrapper">
+          <div className="sub__wrapper mx-auto">
             <MotionWrapper>Product Page</MotionWrapper>
           </div>
         </div>

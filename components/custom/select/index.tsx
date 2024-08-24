@@ -28,10 +28,9 @@ const SelectInput = ({ formik }: { formik: any }) => {
         borderColor: "transparent",
       },
       backgroundColor: focused ? "#fff" : "transparent",
-      fontSize: 14,
+      fontSize: 13,
       marginLeft: -10,
       zIndex: 100,
-      marginTop: 5,
     }),
     menu: (baseStyles: any) => ({
       ...baseStyles,
@@ -48,7 +47,7 @@ const SelectInput = ({ formik }: { formik: any }) => {
     option: (baseStyles: any) => ({
       ...baseStyles,
       backgroundColor: "#fff",
-      fontSize: 13,
+
       color: "#000",
       "&:hover": {
         backgroundColor: "#F2F2F3",
@@ -65,7 +64,7 @@ const SelectInput = ({ formik }: { formik: any }) => {
     <>
       <div
         className={classNames(
-          "relative h-[78px] gap-3 rounded-xl border-2 border-transparent bg-formBg px-5 py-6 hover:border-border focus:border-[0.4px]",
+          "relative gap-3 rounded-lg border-2 border-transparent bg-formBg px-5 py-3 hover:border-border focus:border-[0.4px]",
           { "bg-white": focused },
         )}
         onMouseEnter={() => {
@@ -76,10 +75,9 @@ const SelectInput = ({ formik }: { formik: any }) => {
         }}
       >
         <label
-          className={classNames(
-            "absolute top-[30px] z-10 font-light text-gray_500",
-            { "top-[2px] py-3 text-sm": focused || value },
-          )}
+          className={classNames("z-10 font-light text-gray_500", {
+            "py-2 text-sm": focused || value,
+          })}
           htmlFor="findUs"
         >
           How did you find us?
