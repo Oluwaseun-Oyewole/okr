@@ -1,26 +1,24 @@
 "use client";
 import logoImage from "@/assets/svg/logo.svg";
 import Button from "@/components/custom/button";
+import { useCustomContext } from "@/hooks/useContext";
 import { useScroll } from "@/hooks/useScroll";
 import { navLists } from "@/utils/constants";
 import { Routes } from "@/utils/routes";
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MobileNavigation } from "./mobile";
 
 const Navigation = () => {
   const { isScrolledPast } = useScroll();
-  const [open, setOpen] = useState(false);
+  const { open, toggle } = useCustomContext();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<HTMLInputElement | any>();
-  const toggle = () => {
-    setOpen(!open);
-  };
 
   return (
     <header
@@ -72,7 +70,7 @@ const Navigation = () => {
           )}
         </div>
       </nav>
-      {open && <MobileNavigation />}
+      <MobileNavigation />
     </header>
   );
 };

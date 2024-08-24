@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container__wrapper {
-  @apply mx-auto overflow-x-hidden overflow-y-scroll px-10 xl:max-w-[1300px];
+  @apply mx-auto overflow-x-hidden overflow-y-scroll px-8 md:px-0 xl:max-w-[1300px];
 }
 
 .child__wrapper {
