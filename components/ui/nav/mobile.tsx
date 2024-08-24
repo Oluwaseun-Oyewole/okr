@@ -21,7 +21,7 @@ export const MobileNavigation = () => {
         type: "spring",
         mass: 0.45,
         stiffness: 80,
-        damping: 10,
+        damping: 11,
       },
     },
   };
@@ -59,13 +59,13 @@ export const MobileNavigation = () => {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={variants}
-      className={`container__wrapper fixed right-0 top-20 z-50 flex h-[89vh] w-full flex-col overflow-hidden overflow-y-hidden bg-[#121212] shadow-md lg:hidden`}
+      className={`container__wrapper fixed right-0 top-20 z-50 flex h-full w-full flex-col overflow-hidden overflow-y-hidden bg-[#121212] shadow-md lg:hidden`}
     >
       <motion.ul
         initial="hidden"
         animate="show"
         variants={container}
-        className="flex h-[48vh] w-full flex-col justify-center gap-5 text-sm font-light text-white"
+        className="flex h-[48vh] w-full flex-col justify-center gap-5 text-sm text-white"
       >
         {navLists?.map((nav) => {
           return (
@@ -80,7 +80,7 @@ export const MobileNavigation = () => {
           initial="hidden"
           animate="show"
           variants={buttonContainer}
-          className="mt-10 flex w-[70%] flex-col justify-start gap-5 font-light"
+          className="mt-10 flex w-[70%] flex-col justify-start gap-5"
         >
           <motion.li className="list-none" variants={buttonItem}>
             <Link href={Routes.join_waiting}>

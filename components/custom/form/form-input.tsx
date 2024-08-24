@@ -1,6 +1,11 @@
 import classNames from "classnames";
 import { ErrorMessage } from "formik";
-import { type InputHTMLAttributes, type ReactNode } from "react";
+import {
+  useRef,
+  useState,
+  type InputHTMLAttributes,
+  type ReactNode,
+} from "react";
 import FormError from "./form-error";
 
 type IProps = {
@@ -15,26 +20,40 @@ export default function FormInput({
   name,
   ...props
 }: IProps): ReactNode {
+  const [hover, setHover] = useState(false);
+  const ref = useRef<HTMLInputElement>(null);
   return (
-    <div className="">
+    <div>
       <div
         className={classNames(
-          "flex flex-col items-start justify-center gap-3 rounded-xl border-2 border-transparent bg-formBg px-5 py-3 transition-all duration-500 ease-in-out hover:border-border focus:border-[0.4px]",
+          "items-centers relative flex h-[78px] flex-col justify-center gap-3 rounded-lg border-2 border-transparent bg-formBg px-5 hover:border-border focus:border-[0.4px]",
+          { "bg-white": hover },
         )}
+        onMouseEnter={() => {
+          setHover(true);
+          ref.current?.focus();
+        }}
+        onMouseLeave={() => {
+          setHover(false);
+        }}
       >
         <label
           className={classNames(
-            "block flex-1 text-xs font-light text-gray_500",
+            "absolute top-[12px] block flex-1 text-sm font-light text-gray_500 opacity-0",
+            { "opacity-100": hover || ref.current?.value },
           )}
           htmlFor={id}
         >
           {label}
         </label>
         <input
+          ref={ref}
           id={id}
           name={name}
           className={classNames(
-            "w-full border-none bg-formBg font-telegraf font-normal text-black outline-none placeholder:text-sm placeholder:font-normal placeholder:text-gray_500",
+            "mt-3 flex h-full w-full items-center justify-center border-none bg-formBg font-telegraf text-sm font-normal text-black outline-none placeholder:text-base placeholder:font-normal placeholder:text-gray_500",
+            { "bg-white placeholder:invisible": hover },
+            { "mt-[25px]": ref.current?.value },
           )}
           autoComplete="off"
           aria-required

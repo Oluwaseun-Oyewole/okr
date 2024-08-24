@@ -23,14 +23,22 @@ const SelectInput = ({ formik }: { formik: any }) => {
       borderColor: "transparent",
       "&:hover": {
         borderColor: "transparent",
+        backgroundColor: "#fff",
+      },
+      "&:focus": {
+        backgroundColor: "#fff",
       },
       backgroundColor: "#F2F2F3",
-      fontSize: 15,
+      fontSize: 14,
+      marginTop: 5,
     }),
     menu: (baseStyles: any) => ({
       ...baseStyles,
       cursor: "default",
       backgroundColor: "#F2F2F3",
+      "&:hover": {
+        borderColor: "transparent",
+      },
     }),
     input: (baseStyles: any) => ({
       ...baseStyles,
@@ -41,22 +49,29 @@ const SelectInput = ({ formik }: { formik: any }) => {
     IndicatorSeparator: () => null,
   };
   const [isSelected, setIsSelected] = useState(false);
-
+  const [focused, setFocused] = useState(false);
   return (
     <>
       <div
         className={classNames(
-          "relative gap-3 rounded-xl border-2 border-transparent bg-formBg px-5 py-5 transition-all duration-500 ease-in-out hover:border-border focus:border-[0.4px]",
+          "relative gap-3 rounded-xl border-2 border-transparent bg-formBg px-5 py-6 hover:border-border focus:border-[0.4px]",
+          { "bg-white": focused },
         )}
+        onMouseEnter={() => {
+          setFocused(true);
+        }}
+        onMouseLeave={() => {
+          setFocused(false);
+        }}
       >
         <label
           className={classNames(
-            "absolute top-6 z-10 block flex-1 text-xs font-light text-gray_500",
-            { "top-0": isSelected },
+            "absolute top-[35px] z-10 font-light text-gray_500 transition-all duration-500 ease-in-out",
+            { "top-0 -mt-6 text-sm": isSelected },
           )}
           htmlFor="findUs"
         >
-          How did you find us
+          How did you find us?
         </label>
         <Select
           name="findUs"
@@ -65,7 +80,7 @@ const SelectInput = ({ formik }: { formik: any }) => {
           components={customComponents}
           options={options}
           styles={customStyles}
-          className={classNames({ "z-20": isSelected })}
+          className={classNames({ "": isSelected })}
           onChange={(option) => {
             formik.setFieldValue("findUs", option);
             setIsSelected(true);

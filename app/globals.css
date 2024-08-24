@@ -11,7 +11,7 @@
 }
 
 .sub__wrapper {
-  @apply ml-auto w-full md:max-w-[800px];
+  @apply ml-auto w-full md:max-w-[830px];
 }
 
 .heading__text {
@@ -19,7 +19,7 @@
 }
 
 .sub__text {
-  @apply py-4 text-lg text-[#5E5E60] md:text-xl;
+  @apply py-4 text-lg tracking-wide text-[#5E5E60] md:text-xl;
 }
 
 ::-webkit-scrollbar {
@@ -73,7 +73,6 @@
 
 @media screen and (max-width: 500px) {
   .gridContainer {
-    height: 400px;
     grid-template-areas:
       "card-1 card-1 card-1 card-1"
       "card-2 card-2 card-2 card-2"

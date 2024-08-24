@@ -41,7 +41,7 @@ const HelpfulResources = () => {
                   initial="hidden"
                   animate="show"
                   variants={container}
-                  className="gridContainer link__wrapper h-[390px]"
+                  className="gridContainer link__wrapper md:h-[390px]"
                 >
                   {resources?.map((resource) => {
                     return (
@@ -50,7 +50,7 @@ const HelpfulResources = () => {
                         key={resource.id}
                         className={classNames(
                           resource.className,
-                          "flex h-[200px] flex-col justify-between rounded-3xl px-6 py-6 transition-all duration-500 ease-in-out hover:opacity-60 md:h-full",
+                          "flex h-[200px] flex-col justify-between rounded-3xl px-6 py-6 transition-all duration-500 ease-in-out md:h-full",
                         )}
                         style={{ background: resource.color }}
                       >
