@@ -19,7 +19,7 @@ const ContactForm = () => {
     companyName: "",
     websiteUrl: "",
     message: "",
-    findUs: null,
+    findUs: { value: "", label: "" },
   };
   const validateForm = (values: ContactSalesFormValues) => {
     try {
@@ -118,12 +118,12 @@ const ContactForm = () => {
               />
 
               <Button
+                type="submit"
                 isLoading={formik.isSubmitting}
                 disabled={!formik.isValid}
                 buttonType="secondary"
                 className={classNames(
-                  "w-full !bg-button py-4 sm:w-3/5 lg:!w-[50%]",
-                  { "!w-[70%]": !!formik.isSubmitting },
+                  "md: w-full !bg-button py-4 sm:w-3/5 md:w-[60%] xl:!w-[50%]",
                 )}
               >
                 {formik.isSubmitting ? "Sending...." : "Contact Sales"}

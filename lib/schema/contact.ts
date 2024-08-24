@@ -13,7 +13,7 @@ export const contactFormValidationSchema = z.object({
       label: z.string(),
     })
     .nullable()
-    .refine((val) => val !== null, "Field is required"),
+    .refine((val) => val?.value !== "", "Field is required"),
 });
 
 export type ContactSalesFormValues = z.infer<
