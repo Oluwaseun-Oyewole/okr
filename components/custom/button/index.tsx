@@ -29,14 +29,17 @@ export default function Button({
     <button
       {...rest}
       className={classNames(
-        `w-full gap-4 font-light text-textColor transition-all duration-700 ease-in-out hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-50 ${
-          isLoading && "flex items-center justify-center gap-3"
-        } `,
+        `w-full gap-4 font-light text-textColor transition-all duration-700 ease-in-out hover:opacity-70 disabled:cursor-not-allowed disabled:opacity-50`,
         customButtonStyles(buttonType),
         className,
+        {
+          "flex items-center justify-center gap-4 !bg-formBg !text-gray_500":
+            isLoading,
+        },
       )}
     >
-      {isLoading ? <Loader /> : children}
+      {isLoading && <Loader />}
+      {children}
     </button>
   );
 }

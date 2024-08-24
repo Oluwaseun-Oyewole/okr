@@ -4,6 +4,7 @@ import {
   contactFormValidationSchema,
   type ContactSalesFormValues,
 } from "@/lib/schema/contact";
+import classNames from "classnames";
 import { Form, Formik } from "formik";
 import { ZodError } from "zod";
 import Button from "../button";
@@ -18,7 +19,7 @@ const ContactForm = () => {
     companyName: "",
     websiteUrl: "",
     message: "",
-    findUs: { value: "", label: "" },
+    findUs: null,
   };
   const validateForm = (values: ContactSalesFormValues) => {
     try {
@@ -34,8 +35,11 @@ const ContactForm = () => {
   const basis = "basis-[48%]";
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (values: ContactSalesFormValues, { resetForm }: any) => {
-    updateStatus();
-    resetForm({});
+    // simulating delay
+    setTimeout(() => {
+      updateStatus();
+      resetForm({});
+    }, 4000);
   };
   return (
     <div className="font-telegraf">
@@ -43,7 +47,6 @@ const ContactForm = () => {
         initialValues={initialValues}
         validate={validateForm}
         onSubmit={onSubmit}
-        validateOnMount
       >
         {(formik) => {
           return (
@@ -115,11 +118,15 @@ const ContactForm = () => {
               />
 
               <Button
+                isLoading={formik.isSubmitting}
                 disabled={!formik.isValid}
                 buttonType="secondary"
-                className="w-full !bg-button py-4 sm:w-3/5 lg:!w-[40%]"
+                className={classNames(
+                  "w-full !bg-button py-4 sm:w-3/5 lg:!w-[50%]",
+                  { "!w-[70%]": !!formik.isSubmitting },
+                )}
               >
-                Contact sales
+                {formik.isSubmitting ? "Sending...." : "Contact Sales"}
               </Button>
             </Form>
           );

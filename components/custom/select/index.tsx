@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import classNames from "classnames";
@@ -15,6 +16,8 @@ const options = [
 ];
 
 const SelectInput = ({ formik }: { formik: any }) => {
+  const [focused, setFocused] = useState(false);
+  const [value, setValue] = useState("");
   const customStyles = {
     control: (baseStyles: any) => ({
       ...baseStyles,
@@ -23,19 +26,17 @@ const SelectInput = ({ formik }: { formik: any }) => {
       borderColor: "transparent",
       "&:hover": {
         borderColor: "transparent",
-        backgroundColor: "#fff",
       },
-      "&:focus": {
-        backgroundColor: "#fff",
-      },
-      backgroundColor: "#F2F2F3",
+      backgroundColor: focused ? "#fff" : "transparent",
       fontSize: 14,
+      marginLeft: -10,
+      zIndex: 100,
       marginTop: 5,
     }),
     menu: (baseStyles: any) => ({
       ...baseStyles,
       cursor: "default",
-      backgroundColor: "#F2F2F3",
+      backgroundColor: focused ? "#fff" : "transparent",
       "&:hover": {
         borderColor: "transparent",
       },
@@ -44,17 +45,27 @@ const SelectInput = ({ formik }: { formik: any }) => {
       ...baseStyles,
       color: "transparent",
     }),
+    option: (baseStyles: any) => ({
+      ...baseStyles,
+      backgroundColor: "#fff",
+      fontSize: 13,
+      color: "#000",
+      "&:hover": {
+        backgroundColor: "#F2F2F3",
+        color: "#000",
+        borderRadius: 10,
+      },
+    }),
   };
   const customComponents = {
     IndicatorSeparator: () => null,
   };
-  const [isSelected, setIsSelected] = useState(false);
-  const [focused, setFocused] = useState(false);
+
   return (
     <>
       <div
         className={classNames(
-          "relative gap-3 rounded-xl border-2 border-transparent bg-formBg px-5 py-6 hover:border-border focus:border-[0.4px]",
+          "relative h-[78px] gap-3 rounded-xl border-2 border-transparent bg-formBg px-5 py-6 hover:border-border focus:border-[0.4px]",
           { "bg-white": focused },
         )}
         onMouseEnter={() => {
@@ -66,8 +77,8 @@ const SelectInput = ({ formik }: { formik: any }) => {
       >
         <label
           className={classNames(
-            "absolute top-[35px] z-10 font-light text-gray_500 transition-all duration-500 ease-in-out",
-            { "top-0 -mt-6 text-sm": isSelected },
+            "absolute top-[30px] z-10 font-light text-gray_500",
+            { "top-[-2px] py-3 text-sm": focused || value },
           )}
           htmlFor="findUs"
         >
@@ -80,10 +91,11 @@ const SelectInput = ({ formik }: { formik: any }) => {
           components={customComponents}
           options={options}
           styles={customStyles}
-          className={classNames({ "": isSelected })}
           onChange={(option) => {
+            setFocused(false);
+            // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+            setValue(option?.value!);
             formik.setFieldValue("findUs", option);
-            setIsSelected(true);
           }}
           onBlur={formik.handleBlur}
         />

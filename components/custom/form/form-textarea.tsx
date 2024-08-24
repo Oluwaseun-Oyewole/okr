@@ -26,7 +26,7 @@ const TextArea = ({ label, id, name, ...props }: TextAreaProps) => {
       >
         <label
           htmlFor={id}
-          className={classNames("block text-sm font-medium text-gray-700", {
+          className={classNames("font-mediu block text-sm text-gray_500", {
             "opacity-0": focused,
           })}
         >
