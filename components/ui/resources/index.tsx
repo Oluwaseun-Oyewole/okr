@@ -41,7 +41,7 @@ const HelpfulResources = () => {
                   initial="hidden"
                   animate="show"
                   variants={container}
-                  className="gridContainer link__wrapper md:h-[390px]"
+                  className="gridContainer link__wrapper md:h-[450px]"
                 >
                   {resources?.map((resource) => {
                     return (

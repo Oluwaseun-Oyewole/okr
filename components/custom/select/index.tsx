@@ -78,7 +78,7 @@ const SelectInput = ({ formik }: { formik: any }) => {
         <label
           className={classNames(
             "absolute top-[30px] z-10 font-light text-gray_500",
-            { "top-[-2px] py-3 text-sm": focused || value },
+            { "top-[2px] py-3 text-sm": focused || value },
           )}
           htmlFor="findUs"
         >

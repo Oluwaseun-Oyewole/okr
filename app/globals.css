@@ -7,7 +7,7 @@
 }
 
 .child__wrapper {
-  @apply mx-auto w-full py-14 md:max-w-[900px] lg:py-36;
+  @apply mx-auto w-full py-10 md:max-w-[900px] lg:py-36;
 }
 
 .sub__wrapper {
@@ -15,7 +15,7 @@
 }
 
 .heading__text {
-  @apply text-3xl md:text-7xl;
+  @apply text-4xl md:text-5xl lg:text-7xl;
 }
 
 .sub__text {
